@@ -11,8 +11,13 @@ module.exports = function (app) {
 
 	app.post('/api/friends', function(req, res) {
 
-		res.send(req.body);
+		var friend = req.body;
 
+		friends.push(friend);
+
+		res.send(friend);
+
+		// compatiblity(friend);
 	})
 
 	function compatiblity(user) {
