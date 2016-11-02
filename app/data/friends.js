@@ -87,8 +87,8 @@ var friends = [
 		]
 	},
 	{
-		"name":"Scarlet",
-		"photo": '../public/images/Scarjo.jpg',
+		"name":"Melissa",
+		"photo": '../public/images/melissa.jpg',
 		"scores":[
 
 		1,
