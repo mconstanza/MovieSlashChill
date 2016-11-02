@@ -19,7 +19,7 @@ var friends = [
 	},
 	{
 		"name":"Jonah",
-		"photo": '../public/imgaes/Jonah.jpg',
+		"photo": '/images/Jonah.jpg',
 		"scores":[
 
 		3,
@@ -36,7 +36,7 @@ var friends = [
 	},
 	{
 		"name":"Aubrey",
-		"photo": '../public/images/aubrey.jpg',
+		"photo": '/images/aubrey.jpg',
 		"scores":[
 
 		5,
@@ -54,7 +54,7 @@ var friends = [
 	},
 	{
 		"name":"Bill",
-		"photo": '../public/images/bill.jpg',
+		"photo": '/images/bill.jpg',
 		"scores":[
 
 		5,
@@ -71,7 +71,7 @@ var friends = [
 	},
 	{
 		"name":"Christina",
-		"photo": '../public/images/Christina.jpg',
+		"photo": 'images/Christina.jpg',
 		"scores":[
 
 		1,
@@ -88,7 +88,7 @@ var friends = [
 	},
 	{
 		"name":"Melissa",
-		"photo": '../public/images/melissa.jpg',
+		"photo": '/images/melissa.jpg',
 		"scores":[
 
 		1,
