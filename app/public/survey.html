@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/survey.css"
 
     <!-- Chosen for form control as inspired by the project demo -->
 <!--     <script type='text/javascript' src="chosen.jquery.min.js"></script> -->
@@ -18,16 +19,16 @@
     <div class="modal fade" tabindex="-1" role="dialog" id='matchModal'>
       <div class="modal-dialog" role="document">
         <div class="modal-content">
-          <div class="modal-header">
+          <div class="modal-header text-center">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title">Your Match!</h4>
           </div>
-          <div class="modal-body">
+          <div class="modal-body text-center">
             <img id='matchImg'>
 
-            <p id='matchName'></p>
+            <h4 id='matchName'></h4>
           </div>
-          <div class="modal-footer">
+          <div class="modal-footer text-center">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           </div>
         </div><!-- /.modal-content -->
@@ -199,42 +200,7 @@
 
     </form>
 
-    <script type='text/javascript'>
-       
-
-        $("form").submit(function(){
-
-            console.log('submit clicked')
-
-            var user = {
-                name: $('#name').val().trim(),
-                photo: $('#photo').val().trim(),
-                scores: []
-            }
-
-            for (i = 0; i < $('.movie').length; i++) {
-
-                user.scores.push($('.movie').val())
-            }
-
-            console.log(user)
-
-            var currentURL = window.location.origin;
-
-            $.post(currentURL + '/api/friends', user, function(data) {
-                console.log(data);
-                $('#matchImg').attr('src', data.photo);
-                $('#matchName').text(data.name);
-
-                $('#matchModal').modal('toggle');
-
-            });
-            return false
-        })
-
-        
-
-</script>
-
+    <script type='text/javascript' src='/survey.js'></script>
+   
 	</div>
 </body>
