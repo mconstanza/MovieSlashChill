@@ -15,9 +15,28 @@
 </head>
 <body>
 
+    <div class="modal fade" tabindex="-1" role="dialog" id='matchModal'>
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Your Match!</h4>
+          </div>
+          <div class="modal-body">
+            <img id='matchImg'>
+
+            <p id='matchName'></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
 	<div class="container">
 
-    <form role="form" enctype='application/json' action="/api/friends" method='POST'>
+    <form class="surveyForm" role="form"> <!-- enctype='application/json' action="/api/friends" method='POST'> -->
 
 
         <h2>Survey Questions</h2>
@@ -174,15 +193,16 @@
         </div>
         <br><br>
 
-        <button type="submit" class="btn btn-primary submit">Submit</button>
+        <button id="surveySubmit" class="btn btn-primary submit">Submit</button>
 
         <br><br>
 
     </form>
 
-    <!-- JS file that handles form logic and POST request -->
-    <!-- <script type='text/javascript'>
-        $(".submit").on("click", function(){
+    <script type='text/javascript'>
+       
+
+        $("form").submit(function(){
 
             console.log('submit clicked')
 
@@ -192,27 +212,29 @@
                 scores: []
             }
 
-                for (i = 0; i < $('.movie').length; i++) {
+            for (i = 0; i < $('.movie').length; i++) {
 
-                    user.scores.push($('.movie').val())
-                }
-        
+                user.scores.push($('.movie').val())
+            }
 
-            console.log(user);
+            console.log(user)
 
             var currentURL = window.location.origin;
 
-            $.post(currentURL + '/api/friends', user)
-                .done(function(data) {
-                    console.log(data);
+            $.post(currentURL + '/api/friends', user, function(data) {
+                console.log(data);
+                $('#matchImg').attr('src', data.photo);
+                $('#matchName').text(data.name);
 
-                });
+                $('#matchModal').modal('toggle');
 
+            });
             return false
-
         })
 
-    </script> -->
+        
+
+</script>
 
 	</div>
 </body>

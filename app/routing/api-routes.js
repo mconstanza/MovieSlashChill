@@ -3,6 +3,8 @@
 // Dependencies ///////////////////////////////////////////////////
 var friends = require('../data/friends.js');
 
+
+// Export /////////////////////////////////////////////////////////	
 module.exports = function (app) {
 
 	app.get('/api/friends' , function(req, res) {
@@ -13,17 +15,23 @@ module.exports = function (app) {
 
 		var friend = req.body;
 
-		friends.push(friend);
-
 		// res.send(friend); // test code
 
 		console.log(friend)
 
 		var match = compatiblity(friend);
 
-		res.send('Here is your match: ' + JSON.stringify(match));
+		friends.push(friend);
 
-		// loadMatch(match);
+		res.send(match);
+
+		// var html = '';
+
+		// var matchImg = '<img id="matchImg src="' + match.photo +'">';
+
+		// html += matchImg;
+
+		// res.send(html);
 	})
 
 
@@ -58,17 +66,25 @@ module.exports = function (app) {
 
 					lowestDiff = diff;
 
-					console.log('friend ' + JSON.stringify(friends[i]))
+					// console.log('friend ' + JSON.stringify(friends[i]))
 					friendLowestDiff = friends[i];
 
-					console.log(lowestDiff)
+					// console.log(lowestDiff)
 
-					console.log('friend lowest diff:' + friendLowestDiff)
+					// console.log('friend lowest diff:' + friendLowestDiff)
 				}
 			}
 		}
 		return friendLowestDiff
 	}
+
+
+	function loadMatch(match) {
+
+		
+
+	}
+
 
 
 // CURRENTLY NOT WORKING! ONLY WORKS IN BODY OF LOOP

@@ -1,7 +1,6 @@
-
 $(document).on('ready', function(){
 
-	$(".submit").on("click", function(){
+	$("#surveySubmit").submit(function(){
 
 		console.log('submit clicked')
 
@@ -21,15 +20,16 @@ $(document).on('ready', function(){
 
 		var currentURL = window.location.origin;
 
-		$.post(currentURL + '/api/friends', user)
-			.done(function(data) {
-				console.log(data);
+		$.post(currentURL + '/api/friends', user, function(data) {
+			console.log(data);
+				$('#matchImg').attr('src', data.photo);
+				$('#matchName').text(data.name);
+
+				$('#matchModal').modal('toggle');
 
 			});
 
 		return false
 
 	})
-
-	
 })
